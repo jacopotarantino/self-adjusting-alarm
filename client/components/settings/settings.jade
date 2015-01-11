@@ -1,0 +1,25 @@
+.alarm-settings(ng-controller='SettingsCtrl')
+  h2 Alarm Settings:
+
+  form
+    .form-group
+      label Default alarm time
+      input.form-control(ng-model='defaultAlarmTime')
+    .form-group
+      label Amount of time alarm can be changed in either direction(minutes)
+      input.form-control(ng-model='alarmFlexibility')
+    .form-group
+      label Time to get ready in the morning(minutes)
+      input.form-control(ng-model='morningPrepTime')
+    .form-group
+      label Average morning commute(minutes)
+      input.form-control(ng-model='normalCommuteTime')
+
+    .form-group
+      label Google Calendar account:
+      p(ng-show='account.connected') Connected to {{account.name}}
+      p(ng-show='account.connected') Fetching events for {{account.email}}
+      button.btn.btn-primary(
+        ng-hide='account.connected'
+        ng-click='connectToGoogleCalendarAccount()'
+      ) Connect!

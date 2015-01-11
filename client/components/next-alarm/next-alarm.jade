@@ -1,0 +1,10 @@
+.next-alarm(
+  ng-controller='NextAlarmCtrl'
+  ng-show='accountConnected'
+)
+  h2 First event tomorrow:
+  p
+    a(ng-href='{{nextEvent.htmlLink}}') {{nextEvent.summary}}
+
+  h2 Next alarm set to:
+  p {{nextAlarmTime()}}
