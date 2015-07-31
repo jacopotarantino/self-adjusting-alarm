@@ -32,15 +32,8 @@ angular.module 'selfAdjustingAlarmApp'
     current.subtract(prepTime, 'minutes')
     current.subtract(commuteTime, 'minutes')
 
-    console.log 'adjusted alarm time: ', current.format()
-    console.log 'default alarm time: ', alarmTime.format()
-    console.log 'earliest alarm time: ', earliestPossibleTime.format()
-
     current = moment.min(current, alarmTime)
     alarmTime = moment.max(current, earliestPossibleTime)
-
-    console.log 'chosen alarm time: ', alarmTime.format()
-
 
   $scope.$on 'googleCalendar:nextEvent', (event, data) ->
     console.log data
